@@ -18,12 +18,12 @@
   - Könnyű kezelhetőség
   
   
- ####Szakterületi fogalomjegyzék
+####Szakterületi fogalomjegyzék
  **Raktár:**  Fizikai objektumok tárolására használt épület
  **Árucikk:** Raktárban tárolt objektum
  **Osztály:** Árucikkek kategorizálására alkalmas megnevezés
  
- ####Használatieset-modell
+####Használatieset-modell
 * Szerepkörök
   - vendég: a főoldal tartalmához fér hozzá, rögzíteni, módosítani, törölni nem tud
   - felhasználó: a vendég szerepkörén túl raktárt, osztályt, osztály-raktár hozzárendelést, árucikkeket tud hozzáadni és/vagy szerkeszteni, törölni 
