@@ -19,9 +19,9 @@
   
   
 ####Szakterületi fogalomjegyzék
- **Raktár:**  Fizikai objektumok tárolására használt épület
- **Árucikk:** Raktárban tárolt objektum
- **Osztály:** Árucikkek kategorizálására alkalmas megnevezés
+  - **Raktár:**  Fizikai objektumok tárolására használt épület
+  - **Árucikk:** Raktárban tárolt objektum
+  - **Osztály:** Árucikkek kategorizálására alkalmas megnevezés
  
 ####Használatieset-modell
 * Szerepkörök
