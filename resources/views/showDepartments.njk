@@ -1,0 +1,22 @@
+{% extends 'master' %}
+
+{% block content %}
+<h1>Osztályok</h1>
+<a class="btn btn-default" href="/department/create">Új osztály hozzáadása</a>
+
+<div>
+
+            <table class="table table-striped">
+                {% for department in departments %}
+                    <tr>
+                        <td>{{ department.name }} </td>
+                        <td>
+                            <a class="btn btn-default" href="/department/{{ department.id }}/edit">Módosítás</a>
+                            <a class="btn btn-danger" href="/department/{{ department.id }}/delete">Törlés</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+</div>
+{% endblock %}

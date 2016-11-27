@@ -1,0 +1,38 @@
+{% extends 'master' %}
+
+{% block content %}
+
+
+    {% for storage in storages %}
+        <div>
+            <h1>{{ storage.name }}</h1>
+            <p><i>{{ storage.address }}</i></p>
+            {% if currentUser %}
+            <a class="btn btn-default" href="/storage/{{ storage.id }}/add_department" role="button">Új osztály hozzárendelése</a>
+            <a class="btn btn-default" href="/storage/{{ storage.id }}/add_item" role="button">Új árucikk hozzáadása</a>
+            {% endif %}
+            <table class="table table-striped">
+                <tr>
+                    <th>Árucikk</th>
+                    <th>Osztály</th>
+                    <th>Mennyiség</th>
+                    <th/>
+                </tr>
+               {% for item in storage.listOfItems %}
+                    <tr>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.department_name }}</td>
+                        <td>{{ item.quantity }} db</td>
+                       {% if currentUser %}
+                        <td>
+                            <a class="btn btn-default" href="/item/{{ item.id }}/edit">Módosítás</a>
+                            <a class="btn btn-danger" href="/item/{{ item.id }}/delete">Törlés</a>
+                        </td>
+                        {% endif %}
+                    </tr> 
+               {% endfor %}
+            </table>
+        </div>
+    {% endfor %}
+
+{% endblock %}

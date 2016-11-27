@@ -1,0 +1,42 @@
+{% extends 'master' %}
+
+{% block content %}
+<h1>Új osztály hozzárendelése</h1>
+
+{% if old('errors') %}
+<div class="alert alert-danger" role="alert">
+    <ul>
+    {% for error in old('errors') %}
+    <li>{{ error.message }}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<form class="form-horizontal" action="/storage/{{ storage.id }}/add_department" method="POST">
+  {{ csrfField }}
+  <div class="form-group">
+    <label for="inputName" class="col-sm-2 control-label">Raktár neve</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputName" name="name" value="{{ storage.name }}" readonly>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputDepartment" class="col-sm-2 control-label">Osztály</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="inputDepartment" name="department">
+        {% for department in storage.addableDepartments %}
+            <option value="{{ department.id }}">{{ department.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-success">Hozzárendelés</button>
+      <a class="btn btn-default" href="/" role="button">Vissza</a>
+    </div>
+  </div>
+</form>
+
+{% endblock %}
