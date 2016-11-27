@@ -1,0 +1,14 @@
+[Felhasználó | felhasználónév;email;jelszó]
+
+[Raktár | név;cím]
+
+[Árucikk | név;mennyiség;osztály-raktár_id]
+
+[Osztály | név ]
+
+
+
+[Raktár] 0..*->0..* [Osztály]
+
+[Raktár] 1->0..* [Árucikk]
+[Osztály] 1->0..* [Árucikk]

@@ -1,0 +1,22 @@
+[<actor>Felhasználó]--:>[<actor>Vendég]
+[<actor>Vendég] - [<usecase>Fõoldal]
+[<usecase>Fõoldal] -> [<usecase>Raktárak és cikkeik;listázása]
+
+[<actor>Vendég] - [<usecase>bejelentkezés]
+[<actor>Vendég] - [<usecase>Regisztrálás]
+
+[<actor>Felhasználó] - [<usecase>kijelentkezés]
+
+
+
+[<actor>Felhasználó] - [<usecase>Raktár hozzáadása]
+[<actor>Felhasználó] - [<usecase>Osztályok listázása]
+[<usecase>Osztályok listázása] --:> [<usecase>Osztály hozzáadása ]
+[<usecase>Osztályok listázása] --:> [<usecase>Osztály módosítása ]
+[<usecase>Osztályok listázása] --:> [<usecase>Osztály törlése ]
+[<usecase>Osztályok listázása] --:> [<usecase>Osztály raktárhoz rendelése]
+
+[<actor>Felhasználó] - [<usecase>Cikkek szerkesztése]
+[<usecase>Cikkek szerkesztése] --:> [<usecase>Hozzáadás]
+[<usecase>Cikkek szerkesztése] --:> [<usecase>Módosítás]
+[<usecase>Cikkek szerkesztése] --:> [<usecase>Törlés]
