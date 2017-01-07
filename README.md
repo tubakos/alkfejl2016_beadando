@@ -113,3 +113,38 @@ A menüsor Új raktár hozzáadása gombjának megnyomása után van lehetőség
 Ugyanitt találjuk az Osztályok listázása gombot is, melynek megnyomásával a létrehozott osztályokat tudjuk megtekinteni. Itt tudunk új osztályt is hozzáadni. Az osztályok módosítása és törlése az árucikkekéhez hasonló módon történik.
 
 Munkamenetünk befejezése esetén a Kilépés gombra kattintva jelentkezhetünk ki.
+
+
+###Javascript-es funkciók
+- Raktár nevére kattintás esetén megjelenik annak címe, újabb kattintás után eltűnik.
+  - Érintett fájlok:
+    - public/scripts/mainFunctions.js
+- Árucikk darabszámának növelése eggyel a főoldalon gombnyomás hatására (Ajax)
+  - Érintett fájlok:
+    - public/scripts/mainFunctions.js
+    - Controllers/ItemController.js
+- Árucikk darabszámának csökkentése eggyel a főoldalon gombnyomás hatására (Ajax)
+  - Érintett fájlok:
+    - public/scripts/mainFunctions.js
+    - Controllers/ItemController.js
+- Regisztráció felugró ablakon keresztül, űrlapellenőrzéssel (Ajax)
+  - Érintett fájlok:
+    - public/scripts/ajaxRegister.js
+    - Controllers/UserController.js
+- Árucikk törlése a főoldalon gombnyomás hatására, felugró megerősítő ablakkal, oldalújratöltés nélkül (Ajax)
+  - Érintett fájlok:
+    - public/scripts/mainFunctions.js
+    - Controller/ItemController.js
+    
+ ###Tesztelés
+ A tesztesetek a Selenium IDE Firefox plugin segítségével lettek rögzítve, mely az alábbi hivatkozásról tölthető le:
+ https://addons.mozilla.org/hu/firefox/addon/selenium-ide/
+ 
+ Telepítés után a test könyvtár TestSuite fájlját betöltve futtathatjuk a teszteseteket.
+ 
+ A tesztesetek az alábbiak:
+ - Bejelentkezés, egy árucikk darabszámának növelése és csökkentése a főoldalon, kijelentkezés
+ - Bejelentkezés, kattintás egy árucikk Módosítás gombjára, a mennyiség módosítása kétszer, kijelentkezés
+ - Bejelentkezés, új osztály felvitele, hozzáadott osztály törlése, kijelentkezés
+ - Bejelentkezés, új árucikk hozzáadása, hozzáadott árucikk törlése, kijelentkezés
+  
