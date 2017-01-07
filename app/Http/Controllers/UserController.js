@@ -78,6 +78,47 @@ class UserController {
         // 4.
         res.redirect('/')
     }
+
+    * ajaxRegister (req, res) {
+         // 1. input adatok kinyerése
+        const userData = req.all()
+
+        // 2. kinyert adatok validálása
+        const rules = {
+            'email': 'required|email',
+            'name': 'required',
+            'password': 'required|min:4',
+            'password_again': 'required|same:password'
+        }
+
+        const validation = yield Validator.validateAll(userData, rules)
+
+        if (validation.fails()) {
+
+            const validationErrors = validation.messages()
+
+            const errorMessages = []
+
+             for (var i=0; i<validationErrors.length; i++) {
+                 errorMessages[i] = validationErrors[i].message
+            }
+            res.ok(errorMessages)
+           
+        } else {
+
+            // 3. business logic
+            const user = new User
+            user.username = userData.name
+            user.email = userData.email
+            user.password = yield Hash.make(userData.password)
+
+            yield user.save()
+            yield req.auth.login(user)
+
+            // 4. válasz generálása
+            res.ok({success: true})
+        }
+    }
 }
 
 module.exports = UserController

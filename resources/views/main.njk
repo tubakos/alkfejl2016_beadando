@@ -1,12 +1,16 @@
 {% extends 'master' %}
 
+{% block scripts %}
+ <script src="/scripts/mainFunctions.js"></script>
+{% endblock %}
+
 {% block content %}
 
 
     {% for storage in storages %}
         <div>
-            <h1>{{ storage.name }}</h1>
-            <p><i>{{ storage.address }}</i></p>
+            <h1 class="storageName">{{ storage.name }}</h1>
+            <p class="storageAddress"><i>{{ storage.address }}</i></p>
             {% if currentUser %}
             <a class="btn btn-default" href="/storage/{{ storage.id }}/add_department" role="button">Új osztály hozzárendelése</a>
             <a class="btn btn-default" href="/storage/{{ storage.id }}/add_item" role="button">Új árucikk hozzáadása</a>
@@ -24,7 +28,8 @@
                         <td>{{ item.department_name }}</td>
                         <td>{{ item.quantity }} db</td>
                        {% if currentUser %}
-                        <td>
+                        <td class="loggedIn">
+                            {{ csrfField }}
                             <a class="btn btn-default" href="/item/{{ item.id }}/edit">Módosítás</a>
                             <a class="btn btn-danger" href="/item/{{ item.id }}/delete">Törlés</a>
                         </td>
@@ -34,5 +39,21 @@
             </table>
         </div>
     {% endfor %}
+
+    <span class="help-block"></span>
+
+    <div class="modal fade confirm-modal" tabindex="-1" role="dialog" id="deleteConfirmModal">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+            <div class="modal-body">
+                Biztosan törölni szeretnéd?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success modal-ok" data-dismiss="modal">OK</button>
+                <button type="button" class="btn btn-danger modal-cancel" data-dismiss="modal">Mégse</button>
+            </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

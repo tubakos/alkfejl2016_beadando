@@ -64,6 +64,37 @@ class ItemController {
         res.redirect('/')
     }
 
+    * ajaxDecrease(req, res) {
+        const item = yield Item.find(req.param('id'))
+
+        item.quantity--
+ 
+        yield item.save()
+
+        const newQuantity = item.quantity
+        res.ok(newQuantity)
+    }
+
+    * ajaxIncrease(req, res) {
+        const item = yield Item.find(req.param('id'))
+
+        item.quantity++
+ 
+        yield item.save()
+
+        const newQuantity = item.quantity
+        res.ok(newQuantity)
+    }
+
+    * ajaxDelete(req, res) {
+        const item = yield Item.find(req.param('id'))
+
+        yield item.delete()
+
+        res.ok({
+          success: true
+        })
+    }
 }
 
 module.exports = ItemController
