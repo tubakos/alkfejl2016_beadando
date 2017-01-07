@@ -136,13 +136,12 @@ Munkamenetünk befejezése esetén a Kilépés gombra kattintva jelentkezhetünk
     - public/scripts/mainFunctions.js
     - Controller/ItemController.js
     
- ###Tesztelés
- A tesztesetek a Selenium IDE Firefox plugin segítségével lettek rögzítve, mely az alábbi hivatkozásról tölthető le:
- https://addons.mozilla.org/hu/firefox/addon/selenium-ide/
+###Tesztelés
+A tesztesetek a Selenium IDE Firefox plugin segítségével lettek rögzítve, mely az alábbi hivatkozásról tölthető le: 
+https://addons.mozilla.org/hu/firefox/addon/selenium-ide/
+Telepítés után a test könyvtár TestSuite fájlját betöltve futtathatjuk a teszteseteket.
  
- Telepítés után a test könyvtár TestSuite fájlját betöltve futtathatjuk a teszteseteket.
- 
- A tesztesetek az alábbiak:
+A tesztesetek az alábbiak:
  - Bejelentkezés, egy árucikk darabszámának növelése és csökkentése a főoldalon, kijelentkezés
  - Bejelentkezés, kattintás egy árucikk Módosítás gombjára, a mennyiség módosítása kétszer, kijelentkezés
  - Bejelentkezés, új osztály felvitele, hozzáadott osztály törlése, kijelentkezés
